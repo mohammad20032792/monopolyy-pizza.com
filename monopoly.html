@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!--Fontawesome-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="dice.css">
+	<title>Dice</title>
+</head>
+<body background="mono.jpg">
+	<!-- FIRST WE MAKE SIMPLE CUBE -->
+	<div class="container">
+		<div class="cube" id="cube">
+			<div class="front">
+				<span class="fas fa-circle"></span>
+			</div>
+			<div class="back">
+					<!-- i use pre tag to align dots -->
+					<pre class="firstPre"><span class="fas fa-circle"></span>    <span class="fas fa-circle"></span>    <span class="fas fa-circle"></span></pre><br>
+					<pre class="secondPre"><span class="fas fa-circle"></span>    <span class="fas fa-circle"></span>    <span class="fas fa-circle"></span></pre>
+			</div>
+			<div class="top">
+				<span class="fas fa-circle"></span>
+				<span class="fas fa-circle"></span>
+			</div>
+			<div class="left">
+				<span class="fas fa-circle"></span>
+				<span class="fas fa-circle"></span>
+				<span class="fas fa-circle"></span>
+
+			</div>
+			<div class="right">
+				<span class="fas fa-circle"></span>
+				<span class="fas fa-circle"></span>
+				<span class="fas fa-circle"></span>
+				<span class="fas fa-circle"></span>
+				<span class="fas fa-circle"></span>
+
+			</div>
+			<div class="bottom">
+				<span class="fas fa-circle"></span>
+				<span class="fas fa-circle"></span>
+				<span class="fas fa-circle"></span>
+				<span class="fas fa-circle"></span>
+
+			</div>
+		</div>
+        <div class="character" id="character"><img width="100px" height="100px" src="158.webp"></div>
+	</div>
+	<!-- JS CODE -->
+	<script type="text/javascript">
+let cube = document.getElementById('cube');
+let character = document.getElementById('character');
+
+let currentPosition = 0; // Variable to store the character's position
+
+angleArray = [[0, 0, 0], [-310, -362, -38], [-400, -320, -2], [135, -217, -88], [-224, -317, 5], [-47, -219, -81], [-133, -360, -53]];
+
+cube.addEventListener('click', function (e) {
+    cube.style.animation = 'animate 1.4s linear';
+
+    const randomAngle = Math.floor(Math.random() * 6) + 1;
+    cube.style.transform = 'rotateX(' + angleArray[randomAngle][0] + 'deg) rotateY(' + angleArray[randomAngle][1] + 'deg) rotateZ(' + angleArray[randomAngle][2] + 'deg)';
+    cube.style.transition = '1s linear';
+
+    // Update the character's position based on the dice play
+    // currentPosition += 50; // Adjust the increment as needed
+    // character.style.left = currentPosition + 'px';
+	var x=0;
+	function one(){
+		
+		if(x<1){x++;
+	setTimeout(function(){
+		character.style.transition=2+'s';
+        character.style.left=35+'%';
+        character.style.top=66+'%';
+	},1000);}}
+	function two(){
+		
+		if(x<5){setTimeout(function(){
+			character.style.transition=2+'s';
+        character.style.left=25+'%';
+        character.style.top=50+'%';
+	},3000);
+x++;}
+	}
+	function three(){
+		
+		if(x<3){
+	setTimeout(function(){
+		character.style.transition=2+'s';
+        character.style.left=25+'%';
+        character.style.top=33+'%';
+	},5000);x++;}}
+	function four(){
+		
+		if(x<4){
+	setTimeout(function(){
+		character.style.transition=2+'s';
+        character.style.left=35+'%';
+		character.style.top=23+'%';
+	},7000);x++;}}
+	function five(){
+		
+		if(x<5){x++;	setTimeout(function(){
+		character.style.transition=2+'s';
+        character.style.left=50+'%';
+        character.style.top=23+'%';
+	},9000);}}
+	function six(){
+
+		
+		if(x<6){x++;
+	setTimeout(function(){
+		character.style.transition=2+'s';
+        character.style.left=60+'%';
+        character.style.top=33+'%';
+	},11000);}}
+	if(randomAngle==1){
+		one();
+		
+    }
+    else if(randomAngle==2){
+		one();
+		two();
+    }else if(randomAngle==3){
+		one();
+		two();
+		three();
+		
+    }else if(randomAngle==4){
+		one();
+		two();
+		three();
+		four();
+	}else if(randomAngle==5){
+		one();
+		two();
+		three();
+		four();
+		five();
+
+	}else if(randomAngle==6){
+		one();
+		two();
+		three();
+		four();
+		five();
+		six();
+    }
+});
+
+	</script>
+</body>
+</html>
